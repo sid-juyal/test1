@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(express.urlencoded())
 app.use(cors())
 
-mongoose.connect("mongodb://localhost:27017/myLoginRegisterDB", {
+mongoose.connect("mongodb+srv://juyal_s:qwerty7890@cluster0.ygxosxb.mongodb.net/?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 }, () => {
@@ -39,6 +39,7 @@ app.post("/login", (req, res)=> {
 }) 
 
 app.post("/register", (req, res)=> {
+    console.log("sid")
     const { name, email, password} = req.body
     User.findOne({email: email}, (err, user) => {
         if(user){
@@ -49,10 +50,13 @@ app.post("/register", (req, res)=> {
                 email,
                 password
             })
+            console.log(user)
             user.save(err => {
+                console.log(err)
                 if(err) {
                     res.send(err)
                 } else {
+                    console.log(user)
                     res.send( { message: "Successfully Registered, Please login now." })
                 }
             })
