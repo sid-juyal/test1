@@ -39,7 +39,6 @@ app.post("/login", (req, res)=> {
 }) 
 
 app.post("/register", (req, res)=> {
-    console.log("sid")
     const { name, email, password} = req.body
     User.findOne({email: email}, (err, user) => {
         if(user){
@@ -50,7 +49,6 @@ app.post("/register", (req, res)=> {
                 email,
                 password
             })
-            console.log(user)
             user.save(err => {
                 console.log(err)
                 if(err) {

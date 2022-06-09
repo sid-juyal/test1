@@ -7,6 +7,11 @@ import { useState } from 'react';
 
 function App() {
 
+
+  function change(){
+    console.log("CHange");
+  }
+
   const [ user, setLoginUser] = useState({})
   return (
     <div className="App">
