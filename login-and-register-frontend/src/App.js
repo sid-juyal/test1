@@ -9,7 +9,7 @@ function App() {
 
 
   function change(){
-    console.log("CHange");
+    console.log("Change");
   }
 
   const [ user, setLoginUser] = useState({})
